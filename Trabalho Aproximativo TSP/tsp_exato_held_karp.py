@@ -1,5 +1,5 @@
 import itertools
-import random
+import time
 import os
 
 
@@ -64,12 +64,15 @@ def read_graph_from_file(file_path):
 
 
 if __name__ == '__main__':
-
+    start = time.time()
     current_directory = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(current_directory, "tsp1_253.txt")
+    file_path = os.path.join(current_directory, "tsp5_27603.txt")
     grafo = read_graph_from_file(file_path)
 
     min_cost, best_path = held_karp(grafo)
     
-    print("Melhor caminho(HK):", best_path)
-    print("Custo mínimo(HK):", min_cost)
+    print("Melhor caminho (Held Karp):", best_path)
+    print("Custo minimo (Held Karp):", min_cost)
+
+    end = time.time()
+    print("Tempo de Execucao: " + str(end - start))

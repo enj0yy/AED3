@@ -1,5 +1,6 @@
 import os
 import networkx as nx
+import time
 
 def read_graph_from_file(file_path):
     with open(file_path, 'r') as file:
@@ -30,11 +31,13 @@ def mst_tsp(graph):
 
     return approx_path, approx_cost, mst
 
+start = time.time()
+
 # Obter o caminho absoluto para o diretório atual
 current_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Construir o caminho completo para o arquivo de texto na pasta raiz do código
-file_path = os.path.join(current_directory, "tsp2_1248.txt")
+file_path = os.path.join(current_directory, "tsp5_27603.txt")
 
 # Leitura da matriz de adjacência a partir do arquivo
 graph_from_file = read_graph_from_file(file_path)
@@ -44,4 +47,7 @@ approx_path, approx_cost, mst = mst_tsp(graph_from_file)
 
 print("Caminho aproximado (MST):", approx_path)
 print("Custo aproximado (MST):", approx_cost)
+
+end = time.time()
+print("Tempo de Execucao: " + str(end - start))
 
